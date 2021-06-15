@@ -66,9 +66,7 @@
       </div>
       <div class="row">
         <div class="col-8">
-        <div class="mb-3 form-check">
-          <label class="form-check-label" for="exampleCheck1" ><a href="<?php echo base_url()?>users/reset_password">Reset Password</a> </label>
-        </div>  
+          <a href="<?php echo base_url()?>users/reset_password">Reset Password</a>
         </div>
         <div class="col-4">
           <button type="submit" class="btn btn-success btn-block">Log In</button>

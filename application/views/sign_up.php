@@ -104,7 +104,7 @@
         </div>
         <br>
         <br>
-        <a href="" style="color: black; font-size: 14px">Already a user? <span class="text-primary">Login</span></a>
+        <a href="<?= base_url("auth/login")?>" style="color: black; font-size: 14px">Already a user? <span class="text-primary">Login</span></a>
       </div>
     </form>
   </div>
