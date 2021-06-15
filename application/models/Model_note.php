@@ -5,7 +5,7 @@ class Model_note extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('model_users');
+		$this->load->model('model_user');
 	}
 
 	/* get the product data */
