@@ -11,7 +11,7 @@ class Users extends Admin_Controller
 		$this->data['page_title'] = 'Users';
 		
 
-		$this->load->model('model_users');
+		$this->load->model('model_user');
 		$this->load->model('model_note');
 		$this->load->model('model_shared');
 		$this->load->model('model_reset');

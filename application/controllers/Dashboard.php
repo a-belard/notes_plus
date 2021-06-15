@@ -11,7 +11,7 @@ class Dashboard extends Admin_Controller
 
 		$this->data['page_title'] = 'Dashboard';
 		
-		$this->load->model('model_users');
+		$this->load->model('model_user');
 		// $this->load->model('model_notes');
 		// $this->load->model('model_shared');
 	}
