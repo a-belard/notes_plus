@@ -31,7 +31,7 @@ class Users extends Admin_Controller
                 'password' => $password,
                 'residence' => $this->input->post('residence')
             );
-            $register = $this->model_users->register($data);
+            $register = $this->model_user->register($data);
             if($register) {
                 $logged_in_sess = array(
                  'id' => $register['id'],
@@ -56,7 +56,7 @@ class Users extends Admin_Controller
         echo "<span>Province</span>";
         echo '<select name="province" id="province" class="form-select" onchange="displayDistricts(this.value)" required>';
         echo '<option> -- Select Province --</option>';
-        foreach($this->model_users->getProvinces() as $row){
+        foreach($this->model_user->getProvinces() as $row){
             $provinceName = $row["provinceName"];
             $provinceId = $row["provinceId"];
             echo "<option value='$provinceId'>$provinceName</option>";
@@ -66,7 +66,7 @@ class Users extends Admin_Controller
     public function getDistricts(){
         echo "<span>District</span>";
         echo '<select name="residence" id="district" class="form-select" onchange="displaySectors(this.value)" required>';
-        foreach($this->model_users->getDistricts($_POST["provinceId"]) as $row){
+        foreach($this->model_user->getDistricts($_POST["provinceId"]) as $row){
             $districtName = $row["districtName"];
             $districtId = $row["districtId"];
             echo "<option value='$districtId'>$districtName</option>";
@@ -76,7 +76,7 @@ class Users extends Admin_Controller
 	public function index()
 	{
 		$this->not_logged_in();
-		$user_data = $this->model_users->getUserData();
+		$user_data = $this->model_user->getUserData();
 
 		$result = array();
 		foreach ($user_data as $k => $v) {
@@ -105,7 +105,7 @@ class Users extends Admin_Controller
 						$data = array(
 			        		'password' => $this->password_hash($this->input->post('password')),
 			        	);
-			        	$update = $this->model_users->edit_password($data, $email);
+			        	$update = $this->model_user->edit_password($data, $email);
 			        	if($update == true) {	
 			        		$this->session->set_flashdata('success', 'Successfully updated');
 			        		redirect('auth/login', 'refresh');
@@ -150,7 +150,7 @@ class Users extends Admin_Controller
 		        		'residence' => $this->input->post('residence'),
 		        	);
 
-		        	$update = $this->model_users->edit($data, $id);
+		        	$update = $this->model_user->edit($data, $id);
 		        	if($update == true) {
 		        		$this->session->set_flashdata('success', 'Successfully created');
 		        		redirect('users/', 'refresh');
@@ -175,7 +175,7 @@ class Users extends Admin_Controller
 		        			'residence' => $this->input->post('residence'),
 			        	);
 
-			        	$update = $this->model_users->edit($data, $id, $this->input->post('groups'));
+			        	$update = $this->model_user->edit($data, $id, $this->input->post('groups'));
 			        	if($update == true) {
 			        		$this->session->set_flashdata('success', 'Successfully updated');
 			        		redirect('users/', 'refresh');
@@ -187,7 +187,7 @@ class Users extends Admin_Controller
 					}
 			        else {
 			            // false case
-			        	$user_data = $this->model_users->getSingleUserData($id);
+			        	$user_data = $this->model_user->getSingleUserData($id);
 			        	$this->data['user_data'] = $user_data;
 						$this->render_template('users/edit', $this->data);	
 			        }	
@@ -196,7 +196,7 @@ class Users extends Admin_Controller
 	        }
 	        else {
 	            // false case
-	        	$user_data = $this->model_users->getSingleUserData($id);
+	        	$user_data = $this->model_user->getSingleUserData($id);
 	        	$this->data['user_data'] = $user_data;
 				$this->render_template('users/edit', $this->data);	
 	        }	
@@ -211,7 +211,7 @@ class Users extends Admin_Controller
 			if($this->input->post('confirm')) {
 
 				
-					$delete = $this->model_users->delete($id);
+					$delete = $this->model_user->delete($id);
 					if($delete == true) {
 		        		$this->session->set_flashdata('success', 'Successfully removed');
 		        		redirect('users/', 'refresh');
