@@ -53,7 +53,7 @@
                         <td>
                             <a href="<?php echo base_url('notes/edit/'.$v['noteId']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
                             <a href="<?php echo base_url('notes/delete/'.$v['noteId']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                            <a href="<?php echo base_url('myPDF/get_pdf')."?id=".$v['noteId']?>" class="btn btn-info"><i class="fa fa-download"></i></a>
+                            <a href="<?php echo base_url('notes/printnote')."?id=".$v['noteId']?>" class="btn btn-info"><i class="fa fa-download"></i></a>
                             <?php 
                               if(isset($_GET["id"])){ ?>
                                 <a href="<?php echo base_url('shared/insert')."?noteId=".$v['noteId']."&receiverId=".$_GET["id"];?>" class="btn btn-warning"><i class="fa fa-send"></i></a>

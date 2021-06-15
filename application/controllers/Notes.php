@@ -111,5 +111,8 @@ class Notes extends Admin_Controller
 		}
 	}
 
-	
+	public function printnote(){
+		$id = $_GET["id"];
+		redirect("printnote?id=$id");
+	}
 }
