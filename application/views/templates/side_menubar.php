@@ -51,13 +51,6 @@
                 <li id="SubNav"><a href="<?php echo base_url('shared/tome') ?>"><i class="fa fa-eye"></i> To me</a></li>
               </ul>
             </li>
-
-
-        
-
-        
-
-        
       </ul>
     </section>
     <!-- /.sidebar -->

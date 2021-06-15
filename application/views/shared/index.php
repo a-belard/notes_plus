@@ -31,6 +31,7 @@
                   <th>#</th>
                   <th>Title</th>
                   <th>Content</th>
+                  <th>Shared to or from</th>
                   <th>Actions</th>
                 </tr>
                 </thead>
@@ -45,6 +46,7 @@
                         <td><?php echo $v['id']; ?></td>
                         <td><?php echo $v['title']; ?></td>
                         <td><?php echo $v['content']; ?></td>
+                        <td><?php echo $v['names']; ?></td>
                         <td>
                             <a href="<?php echo base_url('shared/delete/'.$v['id']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             <a href="<?php echo base_url('shared/'."?id=".$v['id']) ?>" class="btn btn-warning"><i class="fa fa-send"></i></a>
