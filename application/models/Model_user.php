@@ -7,7 +7,7 @@ class Model_user extends CI_Model
 		parent::__construct();
 	}
 
-	public function getSingleUserData($id){
+	public function getSingleUserData($id = ''){
 		$sql = "SELECT * FROM users where id = ?";
 		$query = $this->db->query($sql, array($this->session->userdata('id')));
 		return $query->row_array();
