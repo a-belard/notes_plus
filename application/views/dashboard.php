@@ -37,14 +37,14 @@
               <div class="icon">
                 <i class="fa fa-sticky-note"></i>
               </div>
-              <a href="<?php echo base_url('products/') ?>" class="small-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="<?php echo base_url('/notes') ?>" class="small-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
               <div class="inner">
-                <h3>5</h3>
-                <p>Shared notes</p>
+                <h3><?= $no_shared_byme ?></h3>
+                <p>Notes shared by me</p>
               </div>
               <div class="icon">
                 <i class="fa fa-paper-plane"></i>

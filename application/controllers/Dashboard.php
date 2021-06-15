@@ -12,18 +12,15 @@ class Dashboard extends Admin_Controller
 		$this->data['page_title'] = 'Dashboard';
 		
 		$this->load->model('model_user');
-		// $this->load->model('model_notes');
-		// $this->load->model('model_shared');
+		$this->load->model("model_note");
+		$this->load->model("model_shared");
 	}
 
 	public function index()
 	{
-
-		// $this->data['total_notes'] = $this->model_users->countTotalUsers();
-		// $this->data['total_shared'] = $this->model_users->countTotalShared();
-
-		$user_id = $this->session->userdata('id');
-		$is_admin = ($user_id == 1) ? true :false;
-		$this->render_template('dashboard');
+		$this->data["no_shared_byme"] = count($this->model_shared->getSharedNotesFromMe()); 
+		$this->data["no_users"] = count($this->model_user->getUserData());
+		$this->data["no_notes"] = count($this->model_note->getNoteData());
+		$this->render_template('dashboard',$this->data);
 	}
 }
