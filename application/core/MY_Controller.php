@@ -10,26 +10,15 @@ class MY_Controller extends CI_Controller
 
 class Admin_Controller extends MY_Controller 
 {
-	
-	var $permission = array();
-
 	public function __construct() 
 	{
 		parent::__construct();
-
-		$group_data = array();
+		$this->load->model("model_user");
 		if(empty($this->session->userdata('logged_in'))) {
 			$session_data = array('logged_in' => FALSE);
 			$this->session->set_userdata($session_data);
 		}
 		else {
-			$user_id = $this->session->userdata('id');
-			// $this->load->model('model_groups');
-			// $group_data = $this->model_groups->getUserGroupByUserId($user_id);
-			
-			// $this->data['user_permission'] = unserialize($group_data['permission']);
-
-			// $this->permission = unserialize($group_data['permission']);
 		}
 	}
 
@@ -51,7 +40,8 @@ class Admin_Controller extends MY_Controller
 
 	public function render_template($page = null, $data = array())
 	{
-
+		$userData = $this->model_user->getSingleUserData($this->session->userdata('id'));
+		$data["username"] = $userData["username"];
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/header_menu',$data);
 		$this->load->view('templates/side_menubar',$data);
