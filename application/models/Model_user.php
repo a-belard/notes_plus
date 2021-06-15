@@ -1,6 +1,6 @@
 <?php 
 
-class Model_users extends CI_Model
+class Model_user extends CI_Model
 {
 	public function __construct()
 	{
@@ -64,19 +64,6 @@ class Model_users extends CI_Model
         $query =$this->db->query($sql, [$cellId]);
         return $query->result_array();
     }
-
-	public function create($data = '', $group_id = null)
-	{
-
-		if($data && $group_id) {
-			$create = $this->db->insert('users', $data);
-
-			$user_id = $this->db->insert_id();
-
-			return ($create == true && $group_data) ? true : false;
-		}
-	}
-
 	public function edit($data = array(), $id = null)
 	{
 		$this->db->where('id', $id);
