@@ -6,11 +6,11 @@
     <section class="content-header">
       <h1>
         Manage
-        <small>Notes</small>
+        <small>Shared Notes</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="<?php echo base_url('users/') ?>">Notes</a></li>
+        <li><a href="<?php echo base_url('users/') ?>">Shared Notes</a></li>
         <li class="active">Delete</li>
       </ol>
     </section>
@@ -23,20 +23,14 @@
 
           <h1>Are you sure?</h1>
 
-          <form action="<?php echo base_url('notes/delete/'.$id) ?>" method="post">
+          <form action="<?php echo base_url('shared/delete/'.$id) ?>" method="post">
             <input type="submit" class="btn btn-success" name="confirm" value="Confirm">
-            <a href="<?php echo base_url('notes') ?>" class="btn btn-danger">Cancel</a>
+            <a href="<?php echo base_url('shared/index') ?>" class="btn btn-danger">Cancel</a>
           </form>
         </div>
-        <!-- col-md-12 -->
       </div>
-      <!-- /.row -->
-      
-
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
 
   <script type="text/javascript">
     $(document).ready(function() {

@@ -39,16 +39,18 @@
                     $id = $this->session->userdata('id');
                     foreach ($this->data as $k => $v):
                       if($id == $v['ownerId'] || $v['receiverId']){
-                      ?> 
+                        if($v['status']== 1){
+                      ?>
                       <tr>
                         <td><?php echo $v['id']; ?></td>
                         <td><?php echo $v['title']; ?></td>
                         <td><?php echo $v['content']; ?></td>
                         <td>
-                            <a href="<?php echo base_url('notes')."?id=".$v['id'] ?>" class="btn btn-info"><i class="fa fa-send"></i></a>
+                            <a href="<?php echo base_url('shared/delete/'.$v['id']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="<?php echo base_url('shared/'."?id=".$v['id']) ?>" class="btn btn-warning"><i class="fa fa-send"></i></a>
                         </td>
                       </tr>
-                    <?php } endforeach; ?>
+                    <?php } } endforeach; ?>
                   <?php endif; ?>
                 </tbody>
               </table>

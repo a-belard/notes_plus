@@ -74,6 +74,13 @@
         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
         <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off" required>
       </div>
+      <div class="input-group form-group has-feedback">
+        <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+        <select name="role" id="" class="form-select has feedback">
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+        </select>
+      </div>
       <div class="form-group has-feedback" id="province">
       </div>
       <div class="form-group has-feedback" id="district">

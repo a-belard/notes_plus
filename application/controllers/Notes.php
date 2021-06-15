@@ -19,10 +19,10 @@ class Notes extends Admin_Controller
 	public function index()
 	{
 
-		$user_data = $this->model_note->getNoteData();
+		$note_data = $this->model_note->getNoteData();
 
 		$result = array();
-		foreach ($user_data as $k => $v) {
+		foreach ($note_data as $k => $v) {
 
 			$result[$k] = $v;
 		}
@@ -43,6 +43,7 @@ class Notes extends Admin_Controller
         		'title' => $this->input->post('title'),
         		'content' => $this->input->post('content'),
                 'ownerId'=>$this->input->post('ownerId'),
+				'status'=>$this->input->post('status'),
         	);    
         	$create = $this->model_note->create($data);
         	if($create == true) {
@@ -91,11 +92,10 @@ class Notes extends Admin_Controller
 
 	public function delete($id)
 	{
-
 		if($id) {
 			if($this->input->post('confirm')) {
-					$delete = $this->model_note->remove($id);
-					if($delete == true) {
+					$update_status = $this->model_note->remove($id);
+					if($update_status == true) {
 		        		$this->session->set_flashdata('success', 'Successfully removed');
 		        		redirect('notes/', 'refresh');
 		        	}

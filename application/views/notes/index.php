@@ -43,6 +43,7 @@
                 <tbody>
                   <?php if($note_data): ?>                  
                     <?php foreach ($note_data as $k => $v): 
+                    if($v['status']==1){
                       ?>
                       <tr>
                     
@@ -60,7 +61,7 @@
                              <?php } ?>
                         </td>
                       </tr>
-                    <?php endforeach ?>
+                    <?php } endforeach ?>
                   <?php endif; ?>
                 </tbody>
               </table>

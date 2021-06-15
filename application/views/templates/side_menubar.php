@@ -46,7 +46,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li id="SubNav"><a href="<?php echo base_url('shared/all') ?>"><i class="fa fa-eye"></i> All</a></li>
+                <li id="SubNav"><a href="<?php echo base_url('shared/') ?>"><i class="fa fa-eye"></i> All</a></li>
                 <li id="SubNav"><a href="<?php echo base_url('shared/fromme') ?>"><i class="fa fa-eye"></i> From me</a></li>
                 <li id="SubNav"><a href="<?php echo base_url('shared/tome') ?>"><i class="fa fa-eye"></i> To me</a></li>
               </ul>

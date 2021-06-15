@@ -37,7 +37,8 @@
                 </thead>
                 <tbody>
                   <?php if($shared_data): ?>                  
-                    <?php foreach ($shared_data as $k => $v):?> 
+                    <?php foreach ($shared_data as $k => $v):
+                      if($v['status']==1){?> 
                       <tr>
                         <td><?php echo $v['id']; ?></td>
                         <td><?php echo $v['title']; ?></td>
@@ -47,7 +48,7 @@
                             <a href="<?php echo base_url('notes')."?id=".$v['id'] ?>" class="btn btn-info"><i class="fa fa-send"></i></a>
                         </td>
                       </tr>
-                    <?php endforeach ?>
+                    <?php } endforeach ?>
                   <?php endif; ?>
                 </tbody>
               </table>

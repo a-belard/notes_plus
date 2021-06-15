@@ -27,6 +27,7 @@
             <form role="form" action="<?php base_url('notes/create') ?>" method="post">
               <div class="box-body">
                 <input type="hidden" name="ownerId" value="<?php echo $this->session->userdata('id');?>">
+                <input type="hidden" name="status" value="1">
                 <?php echo validation_errors(); ?>
 
                 <div class="form-group">

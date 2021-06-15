@@ -40,12 +40,21 @@ class Model_note extends CI_Model
 		}
 	}
 
+	// public function remove($id)
+	// {
+	// 	if($id) {
+	// 		$this->db->where('noteId', $id);
+	// 		$delete = $this->db->delete('notes');
+	// 		return ($delete == true) ? true : false;
+	// 	}
+	// }
 	public function remove($id)
 	{
 		if($id) {
+			$status = 0;
 			$this->db->where('noteId', $id);
-			$delete = $this->db->delete('notes');
-			return ($delete == true) ? true : false;
+			$update_status = $this->db->update('notes',["status" => $status]);
+			return ($update_status == true) ? true : false;
 		}
 	}
 

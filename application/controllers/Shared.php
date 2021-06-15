@@ -13,7 +13,7 @@ class Shared extends Admin_Controller
 
 		$this->load->model('model_shared');
 	}
-	public function all()
+	public function index()
 	{
 
 		$shared_notes= $this->model_shared->getAllSharedNotes();
@@ -55,6 +55,27 @@ class Shared extends Admin_Controller
 		$receiverId=$_GET['receiverId'];
 		$shared_notes= $this->model_shared->insert($noteId,$this->session->userdata('id'),$receiverId);
 		$this->all();
+	}
+	public function delete($id)
+	{
+
+		if($id) {
+			if($this->input->post('confirm')) {
+					$update_status = $this->model_shared->remove($id);
+					if($update_status == true) {
+		        		$this->session->set_flashdata('success', 'Successfully removed');
+		        		redirect('shared/', 'refresh');
+		        	}
+		        	else {
+		        		$this->session->set_flashdata('error', 'Error occurred!!');
+		        		redirect('shared/delete/'.$id, 'refresh');
+		        	}
+			}	
+			else {
+				$this->data['id'] = $id;
+				$this->render_template('shared/delete', $this->data);
+			}	
+		}
 	}
 	
 }
