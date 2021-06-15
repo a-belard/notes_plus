@@ -54,7 +54,7 @@ class Shared extends Admin_Controller
 		$noteId= $_GET['noteId'];
 		$receiverId=$_GET['receiverId'];
 		$shared_notes= $this->model_shared->insert($noteId,$this->session->userdata('id'),$receiverId);
-		$this->all();
+		redirect('shared','refresh');
 	}
 	public function delete($id)
 	{
