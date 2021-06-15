@@ -102,6 +102,9 @@
         <div class="col-xs-4" onclick="displayDistricts()">
           <button type="submit" class="btn btn-success btn-block btn-flat">Signup</button>
         </div>
+        <br>
+        <br>
+        <a href="<?= base_url("auth/login")?>" style="color: black; font-size: 14px">Already a user? <span class="text-primary">Login</span></a>
       </div>
     </form>
   </div>
