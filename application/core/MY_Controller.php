@@ -14,6 +14,7 @@ class Admin_Controller extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model("model_user");
+		$this->load->model("model_note");
 		if(empty($this->session->userdata('logged_in'))) {
 			$session_data = array('logged_in' => FALSE);
 			$this->session->set_userdata($session_data);
@@ -42,6 +43,8 @@ class Admin_Controller extends MY_Controller
 	{
 		$userData = $this->model_user->getSingleUserData($this->session->userdata('id'));
 		$data["username"] = $userData["username"];
+		$data["no_users"] = count($this->model_user->getUserData());
+		$data["no_notes"] = count($this->model_note->getNoteData());
 		$this->load->view('templates/header',$data);
 		$this->load->view('templates/header_menu',$data);
 		$this->load->view('templates/side_menubar',$data);

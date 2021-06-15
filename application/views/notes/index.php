@@ -36,7 +36,7 @@
                   <th>#</th>
                   <th>Title</th>
                   <th>Content</th>
-                  <th>Date Created</th>
+                  <th>Date Wrote</th>
                   <th>Action</th>
                 </tr>
                 </thead>
