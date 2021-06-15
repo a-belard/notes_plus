@@ -57,19 +57,22 @@ class pdfNote extends FPDF{
         $this->_putextgstates();
         parent::_putresources();
     }
-    function myHeader($title, $date){
-        $this -> SetFont('Arial','',12);
-        $this -> SetAlpha(0.85);
-        $this -> Cell(30, 20,date("D dS M Y",strtotime($date)),0,0,'L');
-        $this -> ln();
-        $this -> SetAlpha(1);
+    function myHeader($title){
         $this -> SetFont('Arial','B',16);
         $this -> Cell(30,0,$title,0,0,'L');
-        $this -> ln();
     }
     function body($content){
-        $this -> setFont("Arial",'',12);
-
+        $this -> Cell(0,10," ");
+        $this -> ln();
+        $this -> setFont("Arial",'',13);
+        $this -> MultiCell(0,5,$content);
+    }
+    function Footer(){
+        $this -> SetY(-10);
+        $this -> SetFont('Arial','',12);
+        $this -> SetAlpha(0.85);
+        $this -> Cell(0, 0,date("H  m'  s''",strtotime($GLOBALS["date"])),0,0,'L');
+        $this -> Cell(0, 0,date("D, dS M Y",strtotime($GLOBALS["date"])),0,0,'R');
     }
 }
 
@@ -78,9 +81,11 @@ class Printnote extends MY_Controller{
         $this->load->model('Model_note'); 
         $id = $_GET['id'];
         $data = $this->Model_note->getSingleNoteData($id);
-        $this->fpdf = new pdfNote('P', 'mm', [170,200]);
+        $GLOBALS["date"] = $data["date_created"];
+        $this->fpdf = new pdfNote('P', 'mm', [120,120]);
         $this->fpdf->AddPage();
-        $this->fpdf->myHeader($data["title"], $data["date_created"]);
+        $this->fpdf->myHeader($data["title"]);
+        $this->fpdf->body($data["content"]);
        echo $this->fpdf->Output();
     }
 }
