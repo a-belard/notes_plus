@@ -33,15 +33,7 @@ class Users extends Admin_Controller
             );
             $register = $this->model_user->register($data);
             if($register) {
-                $logged_in_sess = array(
-                 'id' => $register['id'],
-                 'username'  => $register['username'],
-                 'email'     => $register['email'],
-                 'logged_in' => TRUE
-             );
-             $this->session->set_flashdata('success', 'Successfully registered');
-             $this->session->set_userdata($logged_in_sess);
-                redirect('dashboard', 'refresh');
+				redirect('auth/login','refresh');
             }
             else {
                 $this->session->set_flashdata('errors', 'Registration failed!!');
@@ -175,7 +167,7 @@ class Users extends Admin_Controller
 		        			'residence' => $this->input->post('residence'),
 			        	);
 
-			        	$update = $this->model_user->edit($data, $id, $this->input->post('groups'));
+			        	$update = $this->model_user->edit($data, $id);
 			        	if($update == true) {
 			        		$this->session->set_flashdata('success', 'Successfully updated');
 			        		redirect('users/', 'refresh');
