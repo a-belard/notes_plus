@@ -77,8 +77,11 @@
       <div class="input-group form-group has-feedback">
         <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
         <select name="role" id="" class="form-select has feedback">
-        <option value="admin">Admin</option>
-        <option value="user">User</option>
+            <?php
+            if($roles){
+            foreach($roles as $role){ ?>
+            <option value="<?php  echo $role['roleId'] ?>" name="role"><?php echo $role['role_name'] ?></option>
+            <?php  }  }?>
         </select>
       </div>
       <div class="form-group has-feedback" id="province">

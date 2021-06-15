@@ -20,6 +20,11 @@ class Model_user extends CI_Model
             $query = $this->db->query($sql);
             return $query->result_array();
     }
+    public function get_roles(){
+        $sql = "SELECT * from roles";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
     public function register($data)
     {
         $register = $this->db->insert('users', $data);

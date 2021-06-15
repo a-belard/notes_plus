@@ -47,7 +47,7 @@
                         <td><?php echo $v['date_joined']; ?></td>
                         <td>
                         <?php 
-                        if ($v['id']==$this->session->userdata('id')){
+                        if (($v['id']==$this->session->userdata('id'))|| $this->session->userdata('role')=='Admin'){
                         ?>
                         <a href="<?php echo base_url('users/edit/'.$v['id']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
                         <a href="<?php echo base_url('users/delete/'.$v['id']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>

@@ -19,9 +19,11 @@ class Users extends Admin_Controller
 	public function register()
     {
         $this->form_validation->set_rules('names', 'Names', 'trim|required');
-        $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]',['is_unique' => 'The %s already exists']);
-        $this->form_validation->set_rules('email', 'email', 'trim|required|is_unique[users.email]', ['is_unique' => 'The %s already exists']);
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|is_unique[users.username]',['is_unique' => 'The %s already exists']);
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[users.email]', ['is_unique' => 'The %s already exists']);
+        $this->form_validation->set_rules('role', 'Role', 'trim|required');
+        $this->form_validation->set_rules('residence', 'Residence', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
         if ($this->form_validation->run() == TRUE) {
             $password = $this->password_hash($this->input->post('password'));
             $data = array(
@@ -29,6 +31,7 @@ class Users extends Admin_Controller
                 'username' => $this->input->post('username'),
                 'email' => $this->input->post('email'),
                 'password' => $password,
+				'roleId' => $this->input->post('role'),
                 'residence' => $this->input->post('residence')
             );
             $register = $this->model_user->register($data);
@@ -41,7 +44,9 @@ class Users extends Admin_Controller
             }
         }
         else {
-            $this->load->view('sign_up');
+			$this->load->model('model_user');
+			$this->data["roles"] = $this->model_user->get_roles();
+            $this->load->view('sign_up',$this->data);
         }   
     }
     public function getProvinces(){
