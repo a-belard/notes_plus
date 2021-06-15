@@ -9,7 +9,7 @@ class Model_shared extends CI_Model
 
 	public function getAllSharedNotes() 
 	{
-			$sql = "SELECT sh.id,sh.ownerId,sh.receiverId,sh.status, n.title, n.content
+			$sql = "SELECT sh.id,sh.ownerId,sh.receiverId,sh.status, n.title, n.content,u.names
 			FROM shared sh, notes n, users u  WHERE sh.noteid=n.noteid AND (u.id=sh.receiverId OR u.id=sh.ownerId) AND u.id = ?;";
 			$query = $this->db->query($sql,array($this->session->userdata('id')));
 			return $query->result_array();
