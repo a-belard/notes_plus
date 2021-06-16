@@ -21,6 +21,7 @@ class Dashboard extends Admin_Controller
 	{
 		$this->data["no_users"] = count($this->model_user->getUserData());
 		$this->data["no_notes"] = count($this->model_note->getNoteData());
+		$this->data["no_shared"] = count($this->model_shared->getAllSharedNotes()); 
 		$this->data["no_shared_byme"] = count($this->model_shared->getSharedNotesFromMe()); 
 		$this->data["no_shared_tome"] = count($this->model_shared->getSharedNotesToMe()); 
 		$this->data["no_folders"] = count($this->model_folder->getAllFolders()); 

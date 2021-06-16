@@ -22,7 +22,7 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Edit User</h3>
+              <h3 class="box-title">Update your profile</h3>
             </div>
             <form role="form" action="<?php base_url('users/create') ?>" method="post">
               <div class="box-body">

@@ -36,7 +36,7 @@
               <div class="icon">
                 <i class="fa fa-group"></i>
               </div>
-              <a href="<?= base_url("users")?>" class="small-box-footer">Share notes with them <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="<?= base_url("users")?>" class="small-box-footer">Share notes wid <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
       <div class="row">
@@ -58,7 +58,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-blue-gradient">
               <div class="inner">
-                <h3><?= 4 ?></h3>
+                <h3><?= $no_shared ?></h3>
                 <p>Notes shared</p>
               </div>
               <div class="icon">
