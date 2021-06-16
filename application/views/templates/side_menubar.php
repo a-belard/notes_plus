@@ -25,10 +25,10 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li id="allFolders"><a href="<?php echo base_url('notes') ?>"><i class="fa fa-folder"></i> All folders</a></li>
+                <li id="allFolders"><a href="<?php echo base_url('folders') ?>"><i class="fa fa-folder"></i> All folders</a></li>
               <?php if($foldersMenu){ 
                 foreach($foldersMenu as $k => $folder) {?>
-                <li id="<?= "folder".$folder["folderId"]?>"><a href="<?php echo base_url('notes') ?>"><i class="fa fa-folder-o"></i> <?= $folder["name"]?></a></li>
+                <li id="<?= "folder".$folder["folderId"]?>"><a href="<?php echo base_url('folders') ?>"><i class="fa fa-folder-o"></i> <?= $folder["name"]?></a></li>
               <?php }} ?>
               </ul>
             </li>

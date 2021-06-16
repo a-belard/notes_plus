@@ -39,15 +39,6 @@ class Model_note extends CI_Model
 			return ($update == true) ? true : false;
 		}
 	}
-
-	// public function remove($id)
-	// {
-	// 	if($id) {
-	// 		$this->db->where('noteId', $id);
-	// 		$delete = $this->db->delete('notes');
-	// 		return ($delete == true) ? true : false;
-	// 	}
-	// }
 	public function remove($id)
 	{
 		if($id) {

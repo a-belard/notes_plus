@@ -26,7 +26,7 @@ class Notes extends Admin_Controller
 		foreach ($note_data as $k => $v) {
 
 			$result[$k] = $v;
-		}
+		}	
 		$this->data['note_data'] = $result;
 		$this->render_template('notes/index', $this->data);
 	}
