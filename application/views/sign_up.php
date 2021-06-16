@@ -64,15 +64,15 @@
     <form action="" method="post">
     <div class="input-group form-group has-feedback">
         <span class="input-group-text"><i class="fa fa-address-card"></i></span>
-        <input type="text" class="form-control" name="names" id="names" placeholder="Names" autocomplete="off" required>
+        <input type="text" class="form-control" name="names" id="names" placeholder="Names" autocomplete="off" value="<?= $s_data["names"] ?>" required>
       </div>
       <div class="input-group form-group has-feedback">
         <span class="input-group-text"><i class="fa fa-user"></i></span>
-        <input type="username" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" required>
+        <input type="username" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" value="<?= $s_data["username"] ?>" required>
       </div>
       <div class="input-group form-group has-feedback">
         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off" required>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off" value="<?= $s_data["email"] ?>" required>
       </div>
       <div class="input-group form-group has-feedback" hidden>
         <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
@@ -90,7 +90,7 @@
       </div>
       <div class="input-group form-group has-feedback">
         <span class="input-group-text"><i class="fa fa-lock"></i></span>  
-        <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" required>
+        <input type="password" class="form-control" name="password" id="password" value="<?= $s_data["names"] ?>" placeholder="Password" autocomplete="off" required>
       </div>
       <div class="row">
         <div class="col-xs-4">

@@ -45,12 +45,12 @@ class Auth extends Admin_Controller
            			redirect('dashboard', 'refresh');
            		}
            		else {
-           			$this->data['errors'] = 'Incorrect username/password combination';
+           			$this->data['errors'] = 'Incorrect email or password';
            			$this->load->view('login', $this->data);
            		}
            	}
            	else {
-           		$this->data['errors'] = 'Email does not exist';
+           		$this->data['errors'] = 'Incorrect email or password';
 
            		$this->load->view('login', $this->data);
            	}	

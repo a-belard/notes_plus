@@ -59,6 +59,7 @@ class Notes extends Admin_Controller
         }
         else {
                 $data["folders"] = $this->model_folder->getAllFolders(1);
+				$data["page_title"] = "Add note";
                 $this->render_template('/notes/create',$data);
         }	
 	}

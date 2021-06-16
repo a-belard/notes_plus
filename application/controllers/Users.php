@@ -44,8 +44,17 @@ class Users extends Admin_Controller
             }
         }
         else {
+			$data = array(
+                'names' => $this->input->post('names'),
+                'username' => $this->input->post('username'),
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post("password"),
+				'roleId' => $this->input->post('role'),
+                'residence' => $this->input->post('residence')
+            );
 			$this->load->model('model_user');
 			$this->data["roles"] = $this->model_user->get_roles();
+			$this->data["s_data"] = $data;
             $this->load->view('sign_up',$this->data);
         }   
     }

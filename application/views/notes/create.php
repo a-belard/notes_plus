@@ -45,8 +45,7 @@
                 </div>
                 <div class="form-group">
                   <label for="content">Content</label>
-                  <textarea class="form-control" id="content" name="content">
-                  </textarea>
+                  <textarea class="form-control" id="content" name="content" rows="7"></textarea>
                 </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-success">Save Changes</button>
