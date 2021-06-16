@@ -49,7 +49,7 @@
                         <td>
                           <a href="<?= base_url("folders/folder/".$v["folderId"]) ?>"><?php echo $v['name']; ?></a>
                         </td>
-                        <td><?php echo $v['date_created']; ?></td>
+                        <td><?php echo $v['date_made']; ?></td>
                         <td>
                          <?php if($v['folderId']!=1) {?>
                             <a href="<?php echo base_url('folders/edit/'.$v['folderId']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
