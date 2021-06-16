@@ -29,13 +29,14 @@
               <h3 class="box-title">Manage Notes</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body table-responsive">
               <table id="userTable" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
                   <th>#</th>
                   <th>Title</th>
                   <th>Content</th>
+                  <th>Folder</th>
                   <th>Date Wrote</th>
                   <th>Action</th>
                 </tr>
@@ -50,11 +51,12 @@
                         <td><?php echo $v['noteId']; ?></td>
                         <td><?php echo $v['title']; ?></td>
                         <td><?php echo $v['content']; ?></td>
+                        <td><?php echo $v['folderName']; ?></td>
                         <td><?php echo $v['date_created']; ?></td>
                         <td>
+                            <a href="<?php echo base_url('notes/printnote')."?id=".$v['noteId']?>" class="btn btn-info"><i class="fa fa-file-pdf-o"></i></a>
                             <a href="<?php echo base_url('notes/edit/'.$v['noteId']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
                             <a href="<?php echo base_url('notes/delete/'.$v['noteId']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                            <a href="<?php echo base_url('notes/printnote')."?id=".$v['noteId']?>" class="btn btn-info"><i class="fa fa-download"></i></a>
                             <?php 
                               if(isset($_GET["id"])){ ?>
                                 <a href="<?php echo base_url('shared/insert')."?noteId=".$v['noteId']."&receiverId=".$_GET["id"];?>" class="btn btn-warning"><i class="fa fa-send"></i></a>
@@ -86,7 +88,7 @@
         'order' : [],
         });
 
-      $("#userMainNav").addClass('active');
-      $("#manageUserSubNav").addClass('active');
+      $("#notesMainNav").addClass('active');
+      $("#myNotes").addClass('active');
     });
   </script>

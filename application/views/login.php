@@ -66,7 +66,7 @@
       </div>
       <div class="row">
         <div class="col-8">
-          <a href="<?php echo base_url()?>users/reset_password">Reset Password</a>
+          <a class="text-success" href="<?php echo base_url()?>users/reset_password">Reset Password</a>
         </div>
         <div class="col-4">
           <button type="submit" class="btn btn-success btn-block">Log In</button>

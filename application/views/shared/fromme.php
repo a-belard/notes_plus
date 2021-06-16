@@ -24,7 +24,7 @@
               <h3 class="box-title">See shared notes</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body table-responsive">
               <table id="userTable" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
@@ -73,7 +73,7 @@
         'order' : [],
         });
 
-      $("#userMainNav").addClass('active');
-      $("#manageUserSubNav").addClass('active');
+      $("#sharedMainNav").addClass('active');
+      $("#sharedFromMe").addClass('active');
     });
   </script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login</title>
+  <title>Sign up</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">  
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css" integrity="sha512-mxrUXSjrxl8vm5GwafxcqTrEwO1/oBNU25l20GODsysHReZo4uhVISzAKzaABH6/tTfAxZrY2FprmeAP5UZY8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/iCheck/square/blue.css') ?>">
@@ -74,9 +74,9 @@
         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
         <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off" required>
       </div>
-      <div class="input-group form-group has-feedback">
+      <div class="input-group form-group has-feedback" hidden>
         <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-        <select name="role" id="" class="form-select has feedback">
+        <select name="role" id="" class="form-select has feedback" hidden>
             <?php
             if($roles){
             foreach($roles as $role){ ?>
@@ -88,18 +88,12 @@
       </div>
       <div class="form-group has-feedback" id="district">
       </div>
-      <div class="form-group has-feedback" id="sector">
-      </div>
-      <div class="form-group has-feedback" id="cell">
-      </div>
-      <div class="form-group has-feedback" id="village">
-      </div>
       <div class="input-group form-group has-feedback">
-      <span class="input-group-text"><i class="fa fa-lock"></i></span>  
+        <span class="input-group-text"><i class="fa fa-lock"></i></span>  
         <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" required>
       </div>
       <div class="row">
-        <div class="col-xs-4" onclick="displayDistricts()">
+        <div class="col-xs-4">
           <button type="submit" class="btn btn-success btn-block btn-flat">Signup</button>
         </div>
         <br>
@@ -126,24 +120,6 @@
     var data = new FormData();
     data.append("provinceId",provId)
     display("district","<?= base_url('users/getDistricts') ?>",data)
-  }
-
-  function displaySectors(disId){
-    var data = new FormData();
-    data.append("districtId",disId)
-    display("sector","<?= base_url('users/getSectors') ?>",data)
-  }
-
-  function displayCells(secId){
-    var data = new FormData();
-    data.append("sectorId",secId)
-    display("cell","<?= base_url('users/getCells') ?>",data)
-  }
-
-  function displayVillages(cellId){
-    var data = new FormData();
-    data.append("cellId",cellId)
-    display("village","<?= base_url('users/getVillages') ?>",data)
   }
 </script>
 </body>

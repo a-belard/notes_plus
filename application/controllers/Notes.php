@@ -12,6 +12,7 @@ class Notes extends Admin_Controller
 		
 
 		$this->load->model('model_note');
+		$this->load->model("model_folder");
 		// $this->load->model('model_groups');
 		// $this->load->model('model_stores2');
 	}
@@ -44,6 +45,7 @@ class Notes extends Admin_Controller
         		'content' => $this->input->post('content'),
                 'ownerId'=>$this->input->post('ownerId'),
 				'status'=>$this->input->post('status'),
+				'folderId'=>$this->input->post("folderId")
         	);    
         	$create = $this->model_note->create($data);
         	if($create == true) {
@@ -56,7 +58,7 @@ class Notes extends Admin_Controller
         	}
         }
         else {
-                $data = [];
+                $data["folders"] = $this->model_folder->getAllFolders(1);
                 $this->render_template('/notes/create',$data);
         }	
 	}

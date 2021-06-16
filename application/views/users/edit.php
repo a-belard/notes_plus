@@ -22,7 +22,7 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Edit User</h3>
+              <h3 class="box-title">Update your profile</h3>
             </div>
             <form role="form" action="<?php base_url('users/create') ?>" method="post">
               <div class="box-body">
@@ -41,11 +41,27 @@
                   <label for="email">Email</label>
                   <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $user_data['email'] ?>" autocomplete="off">
                 </div>
-                <div class="form-group">
-                  <label for="residence">Residence</label>
-                  <input type="text" class="form-control" id="residence" name="residence" placeholder="Residence" value="<?php echo $user_data['residence'] ?>" autocomplete="off">
+                <div>
+                <label for="residence">Residence</label>
                 </div>
-
+                <div class="form-group has-feedback">
+                  <span>Province</span>
+                  <select name="province" id="province" onchange="displayDistricts(this.value)" class="form-control">
+                    <option value="<?= $user_data['provinceId']?>"><?= $user_data['provinceName'] ?></option>
+                    <?php foreach($provinces as $province) { ?>
+                      <option value="<?= $province['provinceId'] ?>"><?= $province['provinceName'] ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+                <div class="form-group has-feedback" id="districts">
+                <span>District</span>
+                  <select name="residence" id="districts" class="form-control">
+                  <option value="<?= $user_data["districtId"]?>"><?= $user_data["districtName"]?></option>
+                  <?php foreach($districts as $district) { ?>
+                      <option value="<?= $district['districtId'] ?>"><?= $district['districtName'] ?></option>
+                    <?php } ?>
+                  </select>
+                </div>                  
                 <div class="form-group">
                   <div class="alert alert-info alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -84,11 +100,26 @@
   </div>
   <!-- /.content-wrapper -->
 
-<script type="text/javascript">
+  <script type="text/javascript">
   $(document).ready(function() {
-    $("#groups").select2();
-
     $("#userMainNav").addClass('active');
-    $("#manageUserSubNav").addClass('active');
+    $("#users").addClass('active');
   });
+  async function display(elem, url, params){
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      console.log("good")
+      document.getElementById(elem).innerHTML = this.responseText;
+      $("#district").addClass("form-control");
+    }
+    }
+    xmlhttp.open("POST",url,true);
+    await xmlhttp.send(params);
+  }
+  async function displayDistricts(provId){
+    var data = new FormData();
+    data.append("provinceId",provId)
+    await display("districts","<?= base_url('users/getDistricts') ?>",data)
+  }
 </script>

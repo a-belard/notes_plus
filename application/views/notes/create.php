@@ -34,7 +34,15 @@
                   <label for="title">Title</label>
                   <input type="text" class="form-control" id="title" name="title" placeholder="Title" autocomplete="off">
                 </div>
-
+                <div class="form-group">
+                  <label for="title">Folder</label>
+                  <select name="folderId" class="form-control" id="folder">
+                    <option value="1">My notes (Default)</option>
+                    <?php foreach($folders as $folder){ ?>
+                      <option value="<?= $folder["folderId"] ?>"><?= $folder["name"]?></option>
+                    <?php }?>
+                  </select>
+                </div>
                 <div class="form-group">
                   <label for="content">Content</label>
                   <textarea class="form-control" id="content" name="content">
@@ -60,10 +68,7 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $("#groups").select2();
-
-    $("#userMainNav").addClass('active');
-    $("#createUserSubNav").addClass('active');
-    
+    $("#notesMainNav").addClass('active');
+    $("#myNotes").addClass('active');    
   });
 </script>

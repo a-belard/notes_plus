@@ -9,7 +9,7 @@
         <small>Users</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?= base_url("dashboard") ?>"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Users</li>
       </ol>
     </section>
@@ -24,7 +24,7 @@
               <h3 class="box-title">See users</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body table-responsive">
               <table id="userTable" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
@@ -56,7 +56,7 @@
                           }else{
                         ?>
                         
-                            <a href="<?php echo base_url('notes')."?id=".$v['id'] ?>" class="btn btn-warning"><i class="fa fa-send"></i></a>
+                            <a href="<?php echo base_url('notes')."?id=".$v['id'] ?>" class="btn btn-warning"><i class="fa fa-share"></i></a>
                         </td>
                         <?php } ?>
                       </tr>
@@ -86,6 +86,6 @@
         });
 
       $("#userMainNav").addClass('active');
-      $("#manageUserSubNav").addClass('active');
+      $("#users").addClass('active');
     });
   </script>

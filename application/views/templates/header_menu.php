@@ -13,7 +13,7 @@ strong {
 
 <header class="main-header">
     <!-- Logo -->
-    <a href="" class="logo">
+    <a href="<?= base_url("dashboard") ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>N+</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -26,7 +26,7 @@ strong {
         <span class="sr-only">Toggle navigation</span>
       </a>
       <div style="list-style:none;" class="logout">
-        <strong><i class="fa fa-user"></i> <?= $username ?></strong>
+        <a href="<?= base_url("users/edit")?>"><strong style="cursor: pointer;"><i class="fa fa-user"></i> <?= $username ?></strong></a>
         <a href="<?php echo base_url('auth/logout') ?>" class=" px-3 pull-right" style="color:white">
           <i class="fa fa-power-off"></i> 
           <span>Logout</span>

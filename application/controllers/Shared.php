@@ -18,7 +18,7 @@ class Shared extends Admin_Controller
 
 		$shared_notes= $this->model_shared->getAllSharedNotes();
 
-		$this->data = $shared_notes;
+		$this->data["note_data"] = $shared_notes;
 		$this->render_template('shared/index', $this->data);
 	}
 
