@@ -16,7 +16,7 @@
     <section class="content">
       <div class="row">
         <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-green">
+          <div class="small-box bg-yellow-active">
               <div class="inner">
                 <h3><?= $no_folders ?></h3>
                 <p>Folders</p>
@@ -41,7 +41,7 @@
         </div>
       <div class="row">
         <div class="col-lg-4 col-xs-6">
-          <div class="small-box bg-green">
+          <div class="small-box bg-red">
               <div class="inner">
                 <h3><?= $no_notes ?></h3>
                 <p>Notes</p>
@@ -56,7 +56,7 @@
       </div>
       <div class="row">
         <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-green">
+          <div class="small-box bg-blue-gradient">
               <div class="inner">
                 <h3><?= 4 ?></h3>
                 <p>Notes shared</p>
@@ -68,7 +68,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-xs-6">
-          <div class="small-box bg-green">
+          <div class="small-box bg-maroon-gradient">
               <div class="inner">
                 <h3><?= $no_shared_byme ?></h3>
                 <p>Notes shared by me</p>
@@ -80,7 +80,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-xs-6">
-          <div class="small-box bg-green">
+          <div class="small-box bg-purple-gradient">
               <div class="inner">
                 <h3><?= $no_shared_tome ?></h3>
                 <p>Notes shared to me</p>

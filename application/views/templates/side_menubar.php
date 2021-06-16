@@ -26,7 +26,7 @@
             </li>
             <li class="treeview" id="foldersMainNav">
               <a href="">
-                <i class="fa fa-book"></i>
+                <i class="fa fa-folder"></i>
                 <span>Folders</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
