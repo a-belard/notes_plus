@@ -35,6 +35,7 @@
                 <tr>
                   <th>#</th>
                   <th>Name</th>
+                  <!-- <th>&numero; of Notes</th> -->
                   <th>Date Created</th>
                   <th>Actions</th>
                 </tr>
@@ -42,13 +43,15 @@
                 <tbody>
                   <?php if($folder_data): ?>                  
                     <?php foreach ($folder_data as $k => $v): 
+                    // print_r($folder_data);
                     if($v['status']== 1){
                       ?>
                       <tr>
                     
                         <td><?php echo $v['folderId']; ?></td>
                         <td><?php echo $v['name']; ?></td>
-                        <td><?php echo $v['date_created']; ?></td>
+                        <!-- <td><?php echo $v['nonotes']; ?></td> -->
+                        <td><?php echo $v['date_made']; ?></td>
                         <td>
                             <a href="<?php echo base_url('folders/edit/'.$v['folderId']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
                             <a href="<?php echo base_url('folders/delete/'.$v['folderId']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>

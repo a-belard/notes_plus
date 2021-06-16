@@ -38,9 +38,10 @@
                   <label for="title">Folder</label>
                   <select name="folderId" class="form-control" id="folder">
                     <option value="1">My notes (Default)</option>
-                    <?php foreach($folders as $folder){ ?>
+                    <?php foreach($folders as $folder){ 
+                      if($folder['status']==1){?>
                       <option value="<?= $folder["folderId"] ?>"><?= $folder["name"]?></option>
-                    <?php }?>
+                    <?php } }?>
                   </select>
                 </div>
                 <div class="form-group">
