@@ -24,8 +24,8 @@
               <h3 class="box-title">All shared notes</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <table id="userTable" class="table table-bordered table-hover table-striped">
+            <div class="box-body table-responsive">
+              <table id="userTable" class="table table-bordered table-hover table-striped ">
                 <thead>
                 <tr>
                   <th>#</th>
@@ -36,9 +36,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <?php  if($this->data):
+                    <?php  if($note_data):
                     $id = $this->session->userdata('id');
-                    foreach ($this->data as $k => $v):
+                    foreach ($note_data as $k => $v):
                       if($id == $v['ownerId'] || $v['receiverId']){
                         if($v['status']== 1){
                       ?>
@@ -77,7 +77,7 @@
         'order' : [],
         });
 
-      $("#userMainNav").addClass('active');
-      $("#manageUserSubNav").addClass('active');
+      $("#sharedMainNav").addClass('active');
+      $("#shared").addClass('active');
     });
   </script>

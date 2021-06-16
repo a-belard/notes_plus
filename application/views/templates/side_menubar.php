@@ -21,10 +21,25 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li id="seeUsersSubNav"><a href="<?php echo base_url('users') ?>"><i class="fa fa-eye"></i>See users</a></li>
+                <li id="users"><a href="<?php echo base_url('users') ?>"><i class="fa fa-eye"></i>See users</a></li>
               </ul>
             </li>
-            
+            <li class="treeview" id="foldersMainNav">
+              <a href="">
+                <i class="fa fa-book"></i>
+                <span>Folders</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li id="allFolders"><a href="<?php echo base_url('notes') ?>"><i class="fa fa-eye"></i> All folders</a></li>
+              <?php if($foldersMenu){ 
+                foreach($foldersMenu as $k => $folder) {?>
+                <li id="<?= "folder".$folder["folderId"]?>"><a href="<?php echo base_url('notes') ?>"><i class="fa fa-eye"></i> <?= $folder["name"]?></a></li>
+              <?php }} ?>
+              </ul>
+            </li>
             <li class="treeview" id="notesMainNav">
               <a href="">
                 <i class="fa fa-book"></i>
@@ -34,10 +49,10 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li id="manageNoteSubNav"><a href="<?php echo base_url('notes') ?>"><i class="fa fa-eye"></i> My Notes</a></li>
+                <li id="myNotes"><a href="<?php echo base_url('notes') ?>"><i class="fa fa-eye"></i> My Notes</a></li>
               </ul>
             </li>
-            <li class="treeview" id="notesMainNav">
+            <li class="treeview" id="sharedMainNav">
               <a href="">
                 <i class="fa fa-share-alt"></i>
                 <span hre>Shared</span>
@@ -46,9 +61,9 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li id="SubNav"><a href="<?php echo base_url('shared/') ?>"><i class="fa fa-eye"></i> All</a></li>
-                <li id="SubNav"><a href="<?php echo base_url('shared/fromme') ?>"><i class="fa fa-eye"></i> From me</a></li>
-                <li id="SubNav"><a href="<?php echo base_url('shared/tome') ?>"><i class="fa fa-eye"></i> To me</a></li>
+                <li id="shared"><a href="<?php echo base_url('shared/') ?>"><i class="fa fa-eye"></i> All</a></li>
+                <li id="sharedFromMe"><a href="<?php echo base_url('shared/fromme') ?>"><i class="fa fa-eye"></i> From me</a></li>
+                <li id="sharedToMe"><a href="<?php echo base_url('shared/tome') ?>"><i class="fa fa-eye"></i> To me</a></li>
               </ul>
             </li>
       </ul>

@@ -195,6 +195,8 @@ class Users extends Admin_Controller
 	            // false case
 	        	$user_data = $this->model_user->getSingleUserData($id);
 	        	$this->data['user_data'] = $user_data;
+				$this->data["provinces"] = $this->model_user->getOtherProvinces($user_data["provinceId"]);
+				$this->data["districts"] = $this->model_user->getOtherDistricts($user_data["provinceId"],$user_data["districtId"]);
 				$this->render_template('users/edit', $this->data);	
 	        }	
 		}	
@@ -225,7 +227,4 @@ class Users extends Admin_Controller
 			}	
 		}
 	}
-
-	
-
 }

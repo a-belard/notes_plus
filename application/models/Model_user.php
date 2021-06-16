@@ -8,7 +8,9 @@ class Model_user extends CI_Model
 	}
 
 	public function getSingleUserData($id = ''){
-		$sql = "SELECT * FROM users where id = ?";
+		$sql = "SELECT id, names, username, email, provinceName, p.provinceId, districtId, districtName 
+                FROM users u, districts d, provinces p 
+                WHERE u.residence=d.districtId AND d.provinceId=p.provinceId AND id = ?";
 		$query = $this->db->query($sql, array($this->session->userdata('id')));
 		return $query->row_array();
 	}
@@ -46,6 +48,18 @@ class Model_user extends CI_Model
                 FROM districts d, provinces p 
                 WHERE d.provinceId=p.provinceId AND p.provinceId=?;";
         $query =$this->db->query($sql, [$provinceId]);
+        return $query->result_array();
+    }
+    public function getOtherDistricts($provinceId, $districtId){
+        $sql = "SELECT d.districtId, d.districtName, p.provinceId 
+        FROM districts d, provinces p 
+        WHERE d.provinceId=p.provinceId AND p.provinceId=? AND districtId<>'$districtId'";
+        $query =$this->db->query($sql, [$provinceId]);
+        return $query->result_array();
+    }
+    public function getOtherProvinces($provinceId){
+        $sql = "SELECT * from provinces where provinceId!='$provinceId'";
+        $query =$this->db->query($sql);
         return $query->result_array();
     }
     public function getSectors($districtId){

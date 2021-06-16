@@ -29,7 +29,7 @@
               <h3 class="box-title">Manage Notes</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body table-responsive">
               <table id="userTable" class="table table-bordered table-hover table-striped">
                 <thead>
                 <tr>
@@ -86,7 +86,7 @@
         'order' : [],
         });
 
-      $("#userMainNav").addClass('active');
-      $("#manageUserSubNav").addClass('active');
+      $("#notesMainNav").addClass('active');
+      $("#myNotes").addClass('active');
     });
   </script>
