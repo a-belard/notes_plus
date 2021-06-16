@@ -51,7 +51,6 @@
                         <?php
                         if (($v['id']==$this->session->userdata('id')) || $this->session->userdata('role')== 1){?>
                         <a href="<?php echo base_url('users/edit/'.$v['id']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
-                        <a href="<?php echo base_url('users/delete/'.$v['id']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         <?php 
                           }
                           if($v['id']!=$this->session->userdata('id')){

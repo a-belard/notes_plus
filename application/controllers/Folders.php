@@ -108,5 +108,11 @@ class Folders extends Admin_Controller
 			}	
 		}
 	}
+	public function folder($id){
+		$notes = $this->model_folder->getNotes($id);
+		$data["note_data"] = $notes;
+		$data["id"] = $id;
+		$this->render_template("folders/notes", $data);
+	}
 
 }

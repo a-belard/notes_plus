@@ -23,7 +23,7 @@
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title"> <a href="<?php echo base_url('folders/') ?>"></a> Add Folder</h3>
+            <h3 class="box-title"> <a href="<?php echo base_url('folders/') ?>"></a> Edit Folder</h3>
           </div>
           <!-- /.box-header -->
           <form role="form" action="" method="post" enctype="multipart/form-data">

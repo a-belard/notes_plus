@@ -6,11 +6,11 @@
     <section class="content-header">
       <h1>
         Manage
-        <small>Folders</small>
+        <small>Notes</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Folders</li>
+        <li class="active">Notes</li>
       </ol>
     </section>
 
@@ -20,13 +20,13 @@
       <div class="row">
         <div class="col-md-12 col-xs-12">
           
-            <a href="<?php echo base_url('folders/create') ?>" class="btn btn-success">Add Folder</a>
+            <a href="<?php echo base_url('notes/create') ?>" class="btn btn-success">Add Note</a>
             <br /> <br />
 
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Manage Folders</h3>
+              <h3 class="box-title">Manage Notes</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive">
@@ -34,30 +34,33 @@
                 <thead>
                 <tr>
                   <th>#</th>
-                  <th>Name</th>
-                  <th>Date Created</th>
-                  <th>Actions</th>
+                  <th>Title</th>
+                  <th>Content</th>
+                  <th>Folder</th>
+                  <th>Date Wrote</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <?php if($folder_data): ?>                  
-                    <?php foreach ($folder_data as $k => $v): 
+                  <?php if($note_data): ?>                  
+                    <?php foreach ($note_data as $k => $v): 
                     if($v['status']== 1){
                       ?>
                       <tr>
-                        <td><?php echo $v['folderId']; ?></td>
-                        <td>
-                          <a href="<?= base_url("folders/folder/".$v["folderId"]) ?>"><?php echo $v['name']; ?></a>
-                        </td>
+                    
+                        <td><?php echo $v['noteId']; ?></td>
+                        <td><?php echo $v['title']; ?></td>
+                        <td><?php echo $v['content']; ?></td>
+                        <td><?php echo $v['folderName']; ?></td>
                         <td><?php echo $v['date_created']; ?></td>
                         <td>
-                         <?php if($v['folderId']!=1) {?>
-                            <a href="<?php echo base_url('folders/edit/'.$v['folderId']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
-                            <a href="<?php echo base_url('folders/delete/'.$v['folderId']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                         <?php }
-                         else {?>
-                            <a href="#" class="text-black" style="font-style: italic;">Default (No actions)</a>
-                         <?php }?>
+                            <a href="<?php echo base_url('notes/printnote')."?id=".$v['noteId']?>" class="btn btn-info"><i class="fa fa-file-pdf-o"></i></a>
+                            <a href="<?php echo base_url('notes/edit/'.$v['noteId']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                            <a href="<?php echo base_url('notes/delete/'.$v['noteId']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <?php 
+                              if(isset($_GET["id"])){ ?>
+                                <a href="<?php echo base_url('shared/insert')."?noteId=".$v['noteId']."&receiverId=".$_GET["id"];?>" class="btn btn-warning"><i class="fa fa-send"></i></a>
+                             <?php } ?>
                         </td>
                       </tr>
                     <?php } endforeach ?>
@@ -86,6 +89,6 @@
         });
 
       $("#foldersMainNav").addClass('active');
-      $("#allFolders").addClass('active');
+      $("<?= "#folder".$id ?>").addClass('active');
     });
   </script>

@@ -24,7 +24,7 @@
               <div class="icon">
                 <i class="fa fa-folder"></i>
               </div>
-              <a href="<?= base_url("users")?>" class="small-box-footer">Share notes with them <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="<?= base_url("folders")?>" class="small-box-footer">View more <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-4 col-xs-6">
@@ -36,7 +36,7 @@
               <div class="icon">
                 <i class="fa fa-group"></i>
               </div>
-              <a href="<?= base_url("users")?>" class="small-box-footer">Share notes wid <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="<?= base_url("users")?>" class="small-box-footer">Share notes with them<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
       <div class="row">

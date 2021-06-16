@@ -16,10 +16,11 @@
             return $query->result_array();
         }
         public function getSingleFolder($id){
-            $sql = "SELECT * FROM folders where folderId =$id AND creatorId=";
+            $sql = "SELECT * FROM folders where folderId=$id AND creatorId=?";
 			$query = $this->db->query($sql,array($this->session->userdata('id')));
 			return $query->row_array();
         }
+
         public function create($data)
         {
             if($data) {
@@ -43,6 +44,13 @@
                 $update_status = $this->db->update('folders',["status" => $status]);
                 return ($update_status == true) ? true : false;
             }
+        }
+        public function getNotes($id){
+            $sql = "SELECT noteId, title, content, n.date_created, n.status, name as folderName 
+                    FROM notes n, folders f 
+                    WHERE n.folderId=f.folderId  AND ownerId =? AND f.folderId=? ORDER BY n.date_created desc";
+            $query = $this->db->query($sql,[$this->session->userdata["id"],$id]);
+            return $query->result_array();
         }
     }
 ?>

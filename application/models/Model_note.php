@@ -12,7 +12,7 @@ class Model_note extends CI_Model
 	public function getNoteData()
 	{
             $id = $this->session->userdata('id');
-			$sql = "SELECT noteId, title, content, date_created, n.status, name as folderName FROM notes n, folders f WHERE n.folderId=f.folderId  AND ownerId = '$id' ORDER BY date_created desc";
+			$sql = "SELECT noteId, title, content, n.date_created, n.status, name as folderName FROM notes n, folders f WHERE n.folderId=f.folderId  AND ownerId = '$id' ORDER BY n.date_created desc";
 			$query = $this->db->query($sql);
 			return $query->result_array();
             print_r($query);
