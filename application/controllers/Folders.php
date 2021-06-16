@@ -112,6 +112,7 @@ class Folders extends Admin_Controller
 		$notes = $this->model_folder->getNotes($id);
 		$data["note_data"] = $notes;
 		$data["id"] = $id;
+		$data["page_title"] = $notes ? $notes[0]["folderName"] : "Folder";
 		$this->render_template("folders/notes", $data);
 	}
 
