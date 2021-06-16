@@ -38,7 +38,9 @@
                 </thead>
                 <tbody>
                   <?php if($user_data): ?>                  
-                    <?php foreach ($user_data as $k => $v):?> 
+                    <?php foreach ($user_data as $k => $v):
+                      if($v['status'] == 1){
+                        echo $v['status'];?> 
                       <tr>
                         <td><?php echo $v['id']; ?></td>
                         <td><?php echo $v['names']; ?></td>
@@ -47,8 +49,7 @@
                         <td><?php echo $v['date_joined']; ?></td>
                         <td>
                         <?php
-                        if (($v['id']==$this->session->userdata('id')) || $this->session->userdata('role')=='Admin'){
-                        ?>
+                        if (($v['id']==$this->session->userdata('id')) || $this->session->userdata('role')== 1){?>
                         <a href="<?php echo base_url('users/edit/'.$v['id']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
                         <a href="<?php echo base_url('users/delete/'.$v['id']) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         <?php 
@@ -59,7 +60,7 @@
                         </td>
                         <?php } ?>
                       </tr>
-                    <?php endforeach ?>
+                    <?php } endforeach ?>
                   <?php endif; ?>
                 </tbody>
               </table>

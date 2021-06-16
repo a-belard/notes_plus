@@ -128,9 +128,9 @@ class Users extends Admin_Controller
 	}
 	public function edit($id = null)
 	{
-		$this->not_logged_in();
+		$this->not_logged_in();	
 		$id = $this->session->userdata('id');
-		if($id) {
+		if($id &&($id == $this->session->userdata('id') || $this->session->userdata('role')== 1)) {
 			$this->form_validation->set_rules('names', 'Names', 'trim|required');
 			$this->form_validation->set_rules('username', 'Username', 'trim|required');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required');
@@ -197,19 +197,20 @@ class Users extends Admin_Controller
 	        	$this->data['user_data'] = $user_data;
 				$this->render_template('users/edit', $this->data);	
 	        }	
-		}	
+		}	else{
+			redirect('user/index','refresh');
+		}
 	}
 
 	public function delete($id)
 	{
 		$this->not_logged_in();
 
-		if($id) {
+		if($id &&(($id == $this->session->userdata('id'))||$this->session->userdata('role')==1)) {
+			
 			if($this->input->post('confirm')) {
-
-				
-					$delete = $this->model_user->delete($id);
-					if($delete == true) {
+					$update_status = $this->model_user->delete($id);
+					if($update_status == true) {
 		        		$this->session->set_flashdata('success', 'Successfully removed');
 		        		redirect('users/', 'refresh');
 		        	}
@@ -217,12 +218,13 @@ class Users extends Admin_Controller
 		        		$this->session->set_flashdata('error', 'Error occurred!!');
 		        		redirect('users/delete/'.$id, 'refresh');
 		        	}
-
 			}	
 			else {
 				$this->data['id'] = $id;
 				$this->render_template('users/delete', $this->data);
 			}	
+		}else{
+			redirect('users/index','refresh');
 		}
 	}
 

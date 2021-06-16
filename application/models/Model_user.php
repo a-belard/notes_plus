@@ -14,7 +14,7 @@ class Model_user extends CI_Model
 	}
 	public function getUserData() 
     {
-            $sql = "SELECT id, names, email, date_joined, districtName, provinceName 
+            $sql = "SELECT id, names, email, date_joined,status, districtName, provinceName 
                     FROM users u, districts d, provinces p
                     WHERE u.residence=d.districtId AND d.provinceId=p.provinceId";
             $query = $this->db->query($sql);
@@ -32,8 +32,9 @@ class Model_user extends CI_Model
     }
     public function delete($id)
     {
+        $status = 0;
         $this->db->where('id', $this->session->userdata('id'));
-        $delete = $this->db->delete('users');
+        $delete = $this->db->update('users',['status'=>$status]);
         return ($delete == true) ? true : false;
     }
     public function getProvinces(){
