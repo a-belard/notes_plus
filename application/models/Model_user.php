@@ -32,13 +32,13 @@ class Model_user extends CI_Model
         $register = $this->db->insert('users', $data);
         return ($register == true) ? true : false;
     }
-    public function delete($id)
-    {
-        $status = 0;
-        $this->db->where('id', $this->session->userdata('id'));
-        $delete = $this->db->update('users',['status'=>$status]);
-        return ($delete == true) ? true : false;
-    }
+    // public function delete($id)
+    // {
+    //     $status = 0;
+    //     $this->db->where('id', $this->session->userdata('id'));
+    //     $delete = $this->db->update('users',['status'=>$status]);
+    //     return ($delete == true) ? true : false;
+    // }
     public function getProvinces(){
         $sql = "SELECT * from provinces";
         $query =$this->db->query($sql);

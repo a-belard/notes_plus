@@ -213,29 +213,29 @@ class Users extends Admin_Controller
 		}
 	}
 
-	public function delete($id)
-	{
-		$this->not_logged_in();
+	// public function delete($id)
+	// {
+	// 	$this->not_logged_in();
 
-		if($id &&(($id == $this->session->userdata('id'))||$this->session->userdata('role')==1)) {
+	// 	if($id &&(($id == $this->session->userdata('id'))||$this->session->userdata('role')==1)) {
 			
-			if($this->input->post('confirm')) {
-					$update_status = $this->model_user->delete($id);
-					if($update_status == true) {
-		        		$this->session->set_flashdata('success', 'Successfully removed');
-		        		redirect('users/', 'refresh');
-		        	}
-		        	else {
-		        		$this->session->set_flashdata('error', 'Error occurred!!');
-		        		redirect('users/delete/'.$id, 'refresh');
-		        	}
-			}	
-			else {
-				$this->data['id'] = $id;
-				$this->render_template('users/delete', $this->data);
-			}	
-		}else{
-			redirect('users/index','refresh');
-		}
-	}
+	// 		if($this->input->post('confirm')) {
+	// 				$update_status = $this->model_user->delete($id);
+	// 				if($update_status == true) {
+	// 	        		$this->session->set_flashdata('success', 'Successfully removed');
+	// 	        		redirect('users/', 'refresh');
+	// 	        	}
+	// 	        	else {
+	// 	        		$this->session->set_flashdata('error', 'Error occurred!!');
+	// 	        		redirect('users/delete/'.$id, 'refresh');
+	// 	        	}
+	// 		}	
+	// 		else {
+	// 			$this->data['id'] = $id;
+	// 			$this->render_template('users/delete', $this->data);
+	// 		}	
+	// 	}else{
+	// 		redirect('users/index','refresh');
+	// 	}
+	// }
 }
