@@ -32,7 +32,7 @@
                 <?php echo validation_errors(); ?>
 
                 <div class="form-group">
-                  <label for="title">Title</label>
+                  <label for="title">Name</label>
                   <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="<?php echo $this->data['name'] ?>" />
                 </div>
               <div class="box-footer">
