@@ -36,8 +36,8 @@
                 </div>
                 <div class="form-group">
                   <label for="title">Folder</label>
-                  <select name="folderId" class="form-control" id="folder">
-                    <option value="1">My notes (Default)</option>
+                  <select name="folderId" class="form-control" id="folder" required>
+                  <option value="">Select folder or first create a new folder</option>
                     <?php foreach($folders as $folder){ 
                       if($folder['status']==1){?>
                       <option value="<?= $folder["folderId"] ?>"><?= $folder["name"]?></option>
@@ -49,6 +49,7 @@
                   <textarea class="form-control" id="content" name="content" rows="7"></textarea>
                 </div>
               <div class="box-footer">
+              <a href="<?php echo base_url('folders/create') ?>" class="btn btn-primary mr-3">Create Folder</a>
                 <button type="submit" class="btn btn-success">Save Changes</button>
                 <a href="<?php echo base_url('notes/') ?>" class="btn btn-danger">Back</a>
               </div>

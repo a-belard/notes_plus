@@ -39,8 +39,7 @@
                 <tbody>
                   <?php if($user_data): ?>                  
                     <?php foreach ($user_data as $k => $v):
-                      if($v['status'] == 1){
-                        echo $v['status'];?> 
+                      if($v['status'] == 1){?> 
                       <tr>
                         <td><?php echo $v['id']; ?></td>
                         <td><?php echo $v['names']; ?></td>
@@ -48,11 +47,7 @@
                         <td><?php echo $v['districtName']."-".$v['provinceName']; ?></td>
                         <td><?php echo $v['date_joined']; ?></td>
                         <td>
-                        <?php
-                        if (($v['id']==$this->session->userdata('id')) || $this->session->userdata('role')== 1){?>
-                        <a href="<?php echo base_url('users/edit/'.$v['id']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
                         <?php 
-                          }
                           if($v['id']!=$this->session->userdata('id')){
                         ?>
                         

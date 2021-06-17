@@ -7,11 +7,11 @@
 
         public function getAllFolders($id=false){
             if($id){
-                $query = $this->db->query("SELECT * FROM folders WHERE creatorId=? AND folderId<>?",[$this->session->userdata["id"], $id]);
+                $query = $this->db->query("SELECT * FROM folders WHERE creatorId=? AND folderId<>? AND status = 1",[$this->session->userdata["id"], $id]);
                 // $query = $this->db->query("SELECT f.*,count(*) as nonotes from folders f,notes n where f.creatorId =? and  n.folderId = <>?",[$this->session->userdata["id"], $id]);
             }
             else{
-                $query = $this->db->query("SELECT * FROM folders WHERE creatorId=?",[$this->session->userdata["id"]]);
+                $query = $this->db->query("SELECT * FROM folders WHERE creatorId=? AND status = 1",[$this->session->userdata["id"]]);
             }
             return $query->result_array();
         }
