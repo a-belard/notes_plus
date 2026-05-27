@@ -32,3 +32,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 .gitignore
 node_modules
 branch_structure.json
+config.bat
+.env
